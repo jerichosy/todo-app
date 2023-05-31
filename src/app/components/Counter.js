@@ -8,8 +8,8 @@ export default function Counter() {
     // const decrement = () => { count--; };
 
     const [count, setCount] = useState(0);
-    const increment = () => { setCount(count + 1); };
-    const decrement = () => { setCount(count - 1); };
+    const increment = () => { setCount(Math.min(count + 3, 50)); };
+    const decrement = () => { setCount(Math.max(count - 2, -10)); };
 
     return (
         <div className="counter">
