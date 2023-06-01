@@ -11,6 +11,7 @@ export default function Home() {
       <Subheader />
       <Counter /> {/* I maintain my own state. No other component knows my state */}
       <Counter /> {/* I do not know the other Counter's state */}
+      <input /> {/* My text does not change regardless of the counter being in/decremented */}
     </main>
   )
 }
