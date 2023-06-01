@@ -1,0 +1,18 @@
+.list-item-1 {
+  list-style-type: upper-roman;
+}
+
+.list-item-2 {
+  list-style-type: upper-alpha;
+  margin-left: 2em;
+}
+
+.list-item-3 {
+  list-style-type: lower-roman;
+  margin-left: 4em;
+}
+
+.list-item-4 {
+  list-style-type: lower-alpha;
+  margin-left: 6em;
+}

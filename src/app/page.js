@@ -1,22 +1,26 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import Header from './components/Header'
-import Subheader from './components/Subheader'
-import Counter from './components/Counter'
-import LaserPointer from './components/LaserPointer'
-import Todo from './components/Todo'
-import TodoList from './components/TodoList'
+import List from "./List";
+import ListItem from "./ListItem";
+
+import style from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      {/* <Header name="Jericho" /> */}
-      {/* <Subheader /> */}
-      {/* <Counter /> I maintain my own state. No other component knows my state */}
-      {/* <Counter /> I do not know the other Counter's state */}
-      {/* <input /> My text does not change regardless of the counter being in/decremented */}
-      {/* <LaserPointer /> */}
-      <TodoList />
+    <main className={style.main}>
+      <List>
+        <ListItem level={1}>React</ListItem>
+        <List>
+          <ListItem level={2}>JSX</ListItem>
+          <ListItem level={2}>Hooks</ListItem>
+          <List>
+            <ListItem level={3}>useState</ListItem>
+            <ListItem level={3}>useReducer</ListItem>
+            <List>
+              <ListItem level={4}>Usage</ListItem>
+              <ListItem level={4}>Tips</ListItem>
+            </List>
+          </List>
+        </List>
+      </List>
     </main>
-  )
+  );
 }
