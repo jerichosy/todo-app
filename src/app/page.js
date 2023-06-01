@@ -9,7 +9,8 @@ export default function Home() {
     <main className={styles.main}>
       <Header name="Jericho" />
       <Subheader />
-      <Counter />
+      <Counter /> {/* I maintain my own state. No other component knows my state */}
+      <Counter /> {/* I do not know the other Counter's state */}
     </main>
   )
 }
