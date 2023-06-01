@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Todo({ title, isActive, handleToggleStatus }) {
+export default function Todo({ id, title, done, onChange, onDelete }) {
     // const [todos, setTodos] = useState([
     //     { title: 'Learn React', id: 1 },
     //     { title: 'Learn Next.js', id: 2 },
@@ -40,11 +40,10 @@ export default function Todo({ title, isActive, handleToggleStatus }) {
     // )
 
     return (
-        <div>
-            {title}{" "}
-            <button onClick={handleToggleStatus}>
-            {`Set as ${isActive ? "inactive" : "active"}`}
-            </button>
-        </div>
-    );
+        <>
+            <input type='checkbox' checked={done} onChange={e => { onChange(id, 'done', e.target.checked) }} />{" "}
+            <input type='text' value={title} onChange={e => onChange(id, 'title', e.target.value)} />{" "}
+            <button type='button' onClick={() => { onDelete(id) }}>Delete</button>
+        </>
+    )
 }

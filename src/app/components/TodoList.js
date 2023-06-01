@@ -1,21 +1,45 @@
-"use client";  // Don't use backticks here (doesn't work in JSX for some reason)
+"use client";
 
 import { useState } from "react";
-import Todo from "./Todo";
+import ToDo from "./Todo";
+import AddToDo from "./AddToDo";
+
+let nextId = 1;
 
 export default function TodoList() {
-    const [activeTodo, setActiveTodo] = useState(null);
-    const handleToggleStatus = (id) => { setActiveTodo(activeTodo === id ? null : id); }
-
+    const [todos, setTodos] = useState([]);
+    function handleAddToDo(title) {
+        setTodos([...todos, { id: nextId++, title, done: false }]);
+    }
+    function handleChangeToDo(id, property, newValue) {
+        setTodos(
+            todos.map((todo) => ({
+                ...todo,
+                ...(id !== todo.id ? {} : { [property]: newValue }),
+            }))
+        );
+    }
+    function handleDeleteToDo(id) {
+        setTodos(todos.filter((todo) => todo.id !== id));
+    }
 
     return (
         <div>
-            <Todo isActive={activeTodo === 1}
-                handleToggleStatus={() => {handleToggleStatus(1)}} title={'Learn JS'}
-            />
-            <Todo isActive={activeTodo === 2}
-                handleToggleStatus={() => {handleToggleStatus(2)}} title={'Learn React'}
-            />
+            <AddToDo handleAddToDo={handleAddToDo} />
+            <h1>To-do List</h1>
+            <ul style={{ listStyleType: "none", paddingTop: "1em" }}>
+                {todos.map((todo) => (
+                    <li key={todo.id}>
+                        <ToDo
+                            onChange={handleChangeToDo}
+                            done={todo.done}
+                            id={todo.id}
+                            title={todo.title}
+                            onDelete={handleDeleteToDo}
+                        />
+                    </li>
+                ))}
+            </ul>
         </div>
-    )
+    );
 }
