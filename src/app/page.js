@@ -5,6 +5,7 @@ import Subheader from './components/Subheader'
 import Counter from './components/Counter'
 import LaserPointer from './components/LaserPointer'
 import Todo from './components/Todo'
+import TodoList from './components/TodoList'
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       {/* <Counter /> I do not know the other Counter's state */}
       {/* <input /> My text does not change regardless of the counter being in/decremented */}
       {/* <LaserPointer /> */}
-      <Todo />
+      <TodoList />
     </main>
   )
 }
