@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Todo({ title }) {
+export default function Todo({ title, isActive, handleToggleStatus }) {
     // const [todos, setTodos] = useState([
     //     { title: 'Learn React', id: 1 },
     //     { title: 'Learn Next.js', id: 2 },
@@ -39,15 +39,10 @@ export default function Todo({ title }) {
     //     </>
     // )
 
-    const [isActive, setIsActive] = useState(false);
-    const toggleStatus = () => {
-        setIsActive(!isActive);
-    };
-
     return (
         <div>
             {title}{" "}
-            <button onClick={toggleStatus}>
+            <button onClick={handleToggleStatus}>
             {`Set as ${isActive ? "inactive" : "active"}`}
             </button>
         </div>
